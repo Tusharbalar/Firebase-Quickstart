@@ -15,3 +15,16 @@ dbRef.on('value', snap => bigOne.innerText = snap.val());
 var object = document.getElementById('object');
 var dbRef1 = firebase.database().ref().child('object');
 dbRef1.on('value', snap => object.innerText = JSON.stringify(snap.val(), null, 3));
+
+var childObject = dbRef1.child("hobbied");
+
+const ulList = document.getElementById("list");
+
+// sync list changes
+childObject.on("child_added", snap => {
+  console.log("child added", snap.val());
+
+  var li = document.createElement("li");
+  li.innerText = snap.val();
+  ulList.appendChild(li);
+});
