@@ -22,9 +22,20 @@ const ulList = document.getElementById("list");
 
 // sync list changes
 childObject.on("child_added", snap => {
-  console.log("child added", snap.val());
-
   var li = document.createElement("li");
   li.innerText = snap.val();
+  li.id = snap.key;
   ulList.appendChild(li);
+});
+
+// sync list changes
+childObject.on("child_removed", snap => {
+  const liToRemove = document.getElementById(snap.key);
+  liToRemove.remove();
+});
+
+// sync list changes
+childObject.on("child_changed", snap => {
+  var liChanged = document.getElementById(snap.key);
+  liChanged.innerText = snap.val();
 });
