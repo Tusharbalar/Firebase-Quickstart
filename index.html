@@ -5,21 +5,8 @@
   </head>
   <body>
     <h1 id="bigOne"></h1>
+    <h1 id="object"></h1>
     <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyAWxOAAdYCisto2og_eu3YBZSyEIzvGX6w",
-        authDomain: "web-quickstart-cc229.firebaseapp.com",
-        databaseURL: "https://web-quickstart-cc229.firebaseio.com",
-        storageBucket: "web-quickstart-cc229.appspot.com",
-        messagingSenderId: "1090473395200"
-      };
-      firebase.initializeApp(config);
-
-      var bigOne = document.getElementById('bigOne');
-      var dbRef = firebase.database().ref().child('text');
-      dbRef.on('value', snap => bigOne.innerText = snap.val());
-    </script>
+    <script type="text/javascript" src="app.js"></script>
   </body>
 </html>
