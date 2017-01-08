@@ -1,9 +1,35 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Firebase quickstart</title>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="app.css">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
   </head>
   <body>
+    <div class="form-content">
+      <label>
+        Email:
+        <input type="email" id="txtEmail" class="sd-form-control" placeholder="Enter Email">
+      </label>
+      <label>
+        Password:
+        <input type="password" id="txtPassword" class="sd-form-control" placeholder="Enter Password">
+      </label>
+      <button type="button" class="waves-effect waves-light btn" id="btnLogin">Login</button>
+      <button class="waves-effect waves-light btn" id="btnSignup"><i class="material-icons left">cloud</i>Signup</button>
+      <button class="waves-effect waves-light btn hide" id="btnLogout">Logout</button>
+    </div>
     <h1 id="bigOne"></h1>
     <pre id="object"></pre>
     <ul id="list"></ul>

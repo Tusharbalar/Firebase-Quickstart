@@ -39,3 +39,48 @@ childObject.on("child_changed", snap => {
   var liChanged = document.getElementById(snap.key);
   liChanged.innerText = snap.val();
 });
+
+const txtEmail = document.getElementById("txtEmail");
+const txtPassword = document.getElementById("txtPassword");
+const btnLogin = document.getElementById("btnLogin");
+const btnSignup = document.getElementById("btnSignup");
+const btnLogout = document.getElementById("btnLogout");
+
+btnLogin.addEventListener('click', e => {
+  const email = txtEmail.value;
+  const password = txtPassword.value;
+  const auth = firebase.auth();
+
+  //sign in
+  const promise = auth.signInWithEmailAndPassword(email, password);
+  promise.catch(e => {
+    console.log("err", e.message)
+  });
+});
+
+btnSignup.addEventListener('click', e => {
+  const email = txtEmail.value;
+  const password = txtPassword.value;
+  const auth = firebase.auth();
+
+  //sign in
+  const promise = auth.createUserWithEmailAndPassword(email, password);
+  console.log("DSADAS", promise)
+  promise.then(e => { console.log("DSADAS", e); }).catch(e => {
+    console.log("err", e.message)
+  });
+});
+
+firebase.auth().onAuthStateChanged(firebaseUser => {
+  if (firebaseUser) {
+    console.log(firebaseUser);
+    btnLogout.classList.remove('hide');
+  } else {
+    btnLogout.classList.add('hide');
+    console.log("not logged in",firebaseUser);
+  }
+});
+
+btnLogout.addEventListener('click', e => {
+  firebase.auth().signOut();
+});
